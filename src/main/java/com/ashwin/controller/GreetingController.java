@@ -26,9 +26,7 @@ public class GreetingController {
 	@PostMapping("/login")
 	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
 			@RequestParam(name = "email", required = false, defaultValue = "s@gmail.com") String email, Model model) {
-		// setting the name and email to the Model greeting.html
-		model.addAttribute("name", name);
-		model.addAttribute("email", email);
+
 
 		// putting the name and email in the database spring_db
 		User userDetails = new User();
@@ -36,6 +34,9 @@ public class GreetingController {
 		userDetails.setEmail(email);
 		userRepository.save(userDetails);
 		
+		// setting the name and email to the Model greeting.html
+		model.addAttribute("name", name);
+		model.addAttribute("email", email);
 		System.out.println("Calling the /greeting get method.");
 		// add name and email to database spring_db
 		return "userdetails";
