@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class Details {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
+  
   private Integer id;
 
   private String name;

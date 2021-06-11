@@ -9,6 +9,7 @@ public class SpringMysqlDemo extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMysqlDemo.class, args);
+		// commments
 	}
 
 }

@@ -23,6 +23,7 @@ public class GreetingController {
 	@Autowired
 	private DetailsRepository detailsRepository;
 
+	
 	@PostMapping("/login")
 	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
 			@RequestParam(name = "email", required = false, defaultValue = "s@gmail.com") String email, Model model) {
