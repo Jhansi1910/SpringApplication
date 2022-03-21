@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ashwin.accessingdatamysql.Details;
 import com.ashwin.accessingdatamysql.DetailsRepository;
+import com.ashwin.accessingdatamysql.MarksRepository;
 import com.ashwin.accessingdatamysql.User;
 import com.ashwin.accessingdatamysql.UserRepository;
 
@@ -22,7 +23,8 @@ public class GreetingController {
 	private UserRepository userRepository;
 	@Autowired
 	private DetailsRepository detailsRepository;
-
+	@Autowired
+	private MarksRepository marksRepository;
 	
 	@PostMapping("/login")
 	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
@@ -79,5 +81,22 @@ public class GreetingController {
 		return "viewall";
 	}
 	
+	@GetMapping("/marklist")
+	public String markList(@RequestParam(name = "email", required = true) String email, Model model) {
 
+//		// randomly insert marks for this id. this is just a simulation
+//		Marks mark = new Marks();
+//		mark.setId(id);
+//		mark.setMaths((int) (Math.random() * 100));
+//		mark.setEnglish((int) (Math.random() * 100));
+//		mark.setDsp((int) (Math.random() * 100));
+//		mark.setMpmc((int) (Math.random() * 100));
+//
+//		marksRepository.save(mark);
+
+		model.addAttribute("markDetails", marksRepository.findByEmail(email));
+
+		// return all the name and email values from spring_db
+		return "marklist";
+	}
 }

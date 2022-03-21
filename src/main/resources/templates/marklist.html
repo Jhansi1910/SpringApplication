@@ -1,0 +1,22 @@
+<!DOCTYPE HTML >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Marklist</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>Maths</th>
+			<th>English</th>
+			<th>DSP</th>
+			<th>MPMC</th>
+		</tr>
+		<tr th:each="marks : ${markDetails}">
+			<td th:text="${marks.maths}"></td>
+			<td th:text="${marks.english}"></td>
+			<td th:text="${marks.dsp}"></td>
+			<td th:text="${marks.mpmc}"></td>
+		</tr>
+	</table>
+</body>
+</html>
