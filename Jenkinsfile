@@ -53,7 +53,8 @@ pipeline {
             stage('Docker bulid') {
                 steps {
                     script {
-                        echo 'docker-compose up'
+                        sh 'docker compose up -d --no-color --wait'
+                        sh 'docker compose ps'
                     }
                 }
             }
