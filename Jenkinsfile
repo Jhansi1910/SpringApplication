@@ -53,7 +53,7 @@ pipeline {
             stage('Docker bulid') {
                 steps {
                     script {
-                        echo 'docker build -t spring1 .'
+                        sh 'docker build -t spring1 .'
                     }
                 }
             }
