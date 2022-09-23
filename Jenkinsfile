@@ -39,7 +39,7 @@ pipeline {
                             def server = Artifactory.server 'JFROG'
                             def rtMaven = Artifactory.newMavenBuild()
                             //rtMaven.resolver server: server, releaseRepo: 'jenkins-devops', snapshotRepo: 'jenkins-devops-snapshot'
-                            rtMaven.deployer server: server, releaseRepo: 'repo1', snapshotRepo: 'snapshot'
+                            rtMaven.deployer server: server, releaseRepo: 'SpringDemo, snapshotRepo: 'SpringDemoSnp'
                             rtMaven.tool = 'Maven_Home'
                             
                             def buildInfo = rtMaven.run pom: '$workspace/pom.xml', goals: 'clean install'
