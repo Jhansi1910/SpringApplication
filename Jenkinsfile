@@ -29,7 +29,7 @@ pipeline {
             
             stage('Test') {
                 steps {
-                    step([$class: 'JUnitResultArchiver', testResults: '**/target/ashwin-web-0.0.1-SNAPSHOT'])
+                    step([$class: 'JUnitResultArchiver', testResults: '**/target/ashwin-web-0.0.1-SNAPSHOT.jar'])
                 }
             }
             stage('Packaging') {
