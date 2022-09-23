@@ -26,12 +26,7 @@ pipeline {
                     }
                 }
             }
-            
-            stage('Test') {
-                steps {
-                    step([$class: 'JUnitResultArchiver', testResults: '**/target/ashwin-web-0.0.1-SNAPSHOT.jar'])
-                }
-            }
+       
             stage('Packaging') {
                 steps {
                     step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
