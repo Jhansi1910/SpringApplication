@@ -21,17 +21,13 @@ pipeline {
                     script {
                         def mvnHome = tool 'Maven_Home'
                         withSonarQubeEnv() {
-                            bat "${mvnHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Demo_Project1"
+                            bat "${mvnHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=SpringMysql"
                         }
                     }
                 }
             }
             
-            stage('Test') {
-                steps {
-                    step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
-                }
-            }
+       
             stage('Packaging') {
                 steps {
                     step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
@@ -44,7 +40,7 @@ pipeline {
                             def server = Artifactory.server 'JFROG'
                             def rtMaven = Artifactory.newMavenBuild()
                             //rtMaven.resolver server: server, releaseRepo: 'jenkins-devops', snapshotRepo: 'jenkins-devops-snapshot'
-                            rtMaven.deployer server: server, releaseRepo: 'repo1', snapshotRepo: 'snapshot'
+                            rtMaven.deployer server: server, releaseRepo: 'SpringDemo', snapshotRepo: 'SpringDemoSnp'
                             rtMaven.tool = 'Maven_Home'
                             
                             def buildInfo = rtMaven.run pom: '$workspace/pom.xml', goals: 'clean install'
