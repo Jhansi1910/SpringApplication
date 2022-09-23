@@ -50,10 +50,10 @@ pipeline {
                     }
                 }
         }
-            stage('Docker Compose') {
+            stage('Docker bulid') {
                 steps {
                     script {
-                        sh 'docker-compose up'
+                        sh 'docker build -t spring1 .'
                     }
                 }
             }
