@@ -53,7 +53,7 @@ pipeline {
             stage('Docker bulid') {
                 steps {
                     script {
-                        bat 'docker build -t spring1 .'
+                        echo 'docker build -t spring1 .'
                     }
                 }
             }
