@@ -16,6 +16,22 @@ pipeline {
                     }
                 }
             }
+             stage('Build docker image') {
+                steps {
+                    script {
+                        bat 'docker-compose up'
+                    }
+                }
+            }
+            
+            stage('Docker bulid') {
+                steps {
+                    script {
+                        sh 'docker build -t 1stdoc .'
+                        sh 'docker images'
+                    }
+                }
+            }
             stage('SonarQube Analysis') {
                 steps {
                     script {
