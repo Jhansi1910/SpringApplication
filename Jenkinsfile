@@ -24,14 +24,6 @@ pipeline {
                 }
             }
             
-            stage('Docker bulid') {
-                steps {
-                    script {
-                        sh 'docker build -t 1stdoc .'
-                        sh 'docker images'
-                    }
-                }
-            }
             stage('SonarQube Analysis') {
                 steps {
                     script {
