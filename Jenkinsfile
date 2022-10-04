@@ -16,13 +16,7 @@ pipeline {
                     }
                 }
             }
-             stage('Build docker image') {
-                steps {
-                    script {
-                        bat 'docker-compose up'
-                    }
-                }
-            }
+      
             
             stage('SonarQube Analysis') {
                 steps {
@@ -59,6 +53,13 @@ pipeline {
                     }
                 }
         }
+              stage('Build docker image') {
+                steps {
+                    script {
+                        bat 'docker-compose up'
+                    }
+                }
+            }
            
         }
 }
