@@ -1,9 +1,5 @@
 # Docker
-- task: Docker@2
-  inputs:
-    containerRegistry: 'prakruthiregistry'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -42,3 +38,9 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+    - task: Docker@2
+      inputs:
+       containerRegistry: 'prakruthiregistry'
+       command: 'buildAndPush'
+       Dockerfile: '**/Dockerfile'
