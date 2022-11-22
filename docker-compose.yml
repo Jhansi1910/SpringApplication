@@ -4,7 +4,7 @@ services:
        - db
     build: .
     ports:
-      - "8069:8079"
+      - "8085:8089"
     restart: always
     networks:
       - spring-mysql
